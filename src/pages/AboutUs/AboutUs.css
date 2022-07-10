@@ -1,0 +1,30 @@
+.banner-field img {
+	width: 100%;
+	height: 60vh;
+	object-fit: contain;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+	.banner-se {
+		background-image: url("assets/img/banner-se.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+		height: 20vh;
+	}
+
+	.banner-research {
+		background-image: url("assets/img/banner-penelitian.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+		height: 20vh;
+	}
+
+	.banner-field img {
+		width: 100%;
+		height: 20vh;
+		object-fit: contain;
+	}
+}
