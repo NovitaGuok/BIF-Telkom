@@ -8,14 +8,15 @@ function AboutUs() {
     return (
         <div>
             <div className="banner-se">
-                <img src={BannerSe} alt="" className="img-fullwidth"/>
+                <img src={BannerSe} alt="" className="img-fullwidth" />
             </div>
             <div className="banner-research">
                 <img src={BannerResearch} alt="" className="img-fullwidth" />
             </div>
             <div className="banner-field p-5">
-                <img src={BannerField} alt=""/>
+                <img src={BannerField} alt="" />
             </div>
+            <button onClick={() => window.open("https://se.rg.telkomuniversity.ac.id/", "_blank")} className="btn-kk-se mb-5">Website Kelompok Keahlian Software Engineering</button>
         </div>
     )
 }

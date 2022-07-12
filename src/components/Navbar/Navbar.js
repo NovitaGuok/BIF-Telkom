@@ -11,7 +11,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="nav">
+        <nav className="nav position-sticky w-100">
             <a href="/" className="nav-brand border-0">
                 <img src={Logo} alt="" />
             </a>

@@ -27,7 +27,7 @@ a {
 	align-items: center;
 	justify-content: space-around;
 	background: #bf0000;
-    padding: 1rem;
+	padding: 1rem;
 }
 
 .nav-brand {
@@ -35,11 +35,16 @@ a {
 	font-weight: bold;
 }
 
+.nav-brand img {
+	width: 20rem;
+}
+
 .nav-menu {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	gap: 3rem;
+	margin-bottom: 0;
 }
 
 .nav-toggler div {
@@ -62,14 +67,17 @@ a {
 
 	.nav-menu {
 		position: fixed;
-		top: 7vh;
+		top: 11vh;
 		right: 0;
 		width: 100%;
-		height: 93vh;
-		background: rgb(0, 28, 73);
+		background: #bf0000;
 		flex-direction: column;
 		transform: translateX(100%);
 		transition: 0.5s ease-in;
+	}
+
+	.nav-item {
+		padding: 2rem;
 	}
 }
 
