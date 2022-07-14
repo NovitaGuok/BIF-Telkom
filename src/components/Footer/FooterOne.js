@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import Logo from 'assets/logo/logo-fif-side.png'
 import "./FooterOne.css"
 import {
@@ -10,6 +11,25 @@ import {
 } from 'react-icons/fa';
 
 const FooterOne = () => {
+    const [showButton, setShowButton] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 300) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        });
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     return (
         <div className="footer">
             <div className="container">
@@ -26,10 +46,12 @@ const FooterOne = () => {
                     </span>
                 </div>
                 <div className="scroll-to-top d-none d-lg-block">
-                    <div className="footer-line" ></div>
-                    <button className="btn-scroll-to-top btn btn-default" onClick={() => window.open("https://se.rg.telkomuniversity.ac.id/", "_blank")}>TOP</button>
+                    <div className="footer-line"></div>
+                    {showButton && (
+                        <button className="btn-scroll-to-top btn btn-default" onClick={scrollToTop}>TOP</button>
+                    )}
                 </div>
-                <div className="justify-content-between text-white d-flex align-items-center d-flex-md">
+                <div className="justify-content-between text-white d-flex align-items-center">
                     <span style={{ fontSize: "12px" }}>© All rights reserved. Telkom University.</span>
                     <div className="d-flex">
                         <div className="social-media-icon border border-light border rounded-3 align-items-center justify-content-center d-flex me-3">
