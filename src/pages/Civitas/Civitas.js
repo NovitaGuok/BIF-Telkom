@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/FooterTwo'
 function Civitas() {
     return (
         <div>
-            <div className="p-5">
+            <div className="p-5" style={{ overflowX: 'auto' }}>
                 <table className="table table-striped text-start container" style={{ fontSize: '14px' }}>
                     <thead>
                         <tr>
