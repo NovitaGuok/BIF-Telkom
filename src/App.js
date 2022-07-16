@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar'
 import AboutUs from './pages/AboutUs/AboutUs'
 import Civitas from './pages/Civitas/Civitas'
+import data from 'assets/data/data.json'
 
 function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<AboutUs />} />
-        <Route path="/civitas" element={<Civitas />} />
-      </Routes>
-    </div>
-  );
+    const [lectureData, setLectureData] = useState();
+    const handleSearch = e => {
+        console.log(e.target.value)
+        const res = data
+            .filter((x) => x.NAMA_LENGKAP.toLowerCase().includes(e.target.value) || x.KODE_DOSEN?.toLowerCase().includes(e.target.value))
+            .map(c => c)
+        console.log(res)
+        setLectureData(res)
+    };
+
+    useEffect(() => {
+        setLectureData(data)
+    }, [])
+
+    return (
+        <div className="App">
+            <Navbar handleChange={handleSearch} />
+            <Routes>
+                <Route path="/" element={<AboutUs />} />
+                <Route path="/civitas" element={<Civitas data={lectureData} handleChange={handleSearch} />} />
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

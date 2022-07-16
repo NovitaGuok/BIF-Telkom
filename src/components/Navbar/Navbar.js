@@ -3,7 +3,7 @@ import Logo from 'assets/logo/logo-kk-se.png';
 import Hamburger from 'assets/icon/ic-hamburger.svg';
 import "./Navbar.css"
 
-const Navbar = () => {
+const Navbar = ({ handleChange }) => {
     const [isNavExpanded, setIsNavExpanded] = useState(false)
 
     return (
@@ -24,7 +24,7 @@ const Navbar = () => {
                     </li>
                     <li className={`nav-item ${isNavExpanded ? 'd-none' : 'd-block'}`}>
                         <form action="" className="search-bar">
-                            <input type="search" name="search" pattern=".*\S.*" required />
+                            <input onChange={handleChange} type="search" name="search" pattern=".*\S.*" required />
                             <button className="search-btn" type="submit">
                                 <span>Search</span>
                             </button>
