@@ -1,43 +1,39 @@
-import React, { useState } from 'react';
-import "./Navbar.css"
+import { useState } from "react"
 import Logo from 'assets/logo/logo-kk-se.png';
+import Hamburger from 'assets/icon/ic-hamburger.svg';
+import "./Navbar.css"
 
 const Navbar = () => {
-    const [active, setActive] = useState("nav-menu")
-    const [toggleIcon, setToggleIcon] = useState("nav-toggler")
-    const navToggle = () => {
-        active === "nav-menu" ? setActive("nav-menu nav-active") : setActive("nav-menu")
-        toggleIcon === "nav-toggler" ? setToggleIcon("nav-toggler toggle") : setToggleIcon("nav-toggler")
-    }
+    const [isNavExpanded, setIsNavExpanded] = useState(false)
 
     return (
-        <nav className="nav position-sticky w-100">
-            <a href="/" className="nav-brand border-0">
+        <nav className="navigation">
+            <a href="/" className="brand-name">
                 <img src={Logo} alt="" />
             </a>
-            <ul className={active}>
-                <li className="nav-item">
-                    <a href="/" className="nav-link text-decoration-none text-white fw-bold">About Us</a>
-                </li>
-                <li className="nav-item">
-                    <a href="/civitas" className="nav-link text-decoration-none text-white fw-bold">Civitas</a>
-                </li>
-                <li>
-                    <form action="" className="search-bar">
-                        <input type="search" name="search" pattern=".*\S.*" required />
+            <button className="hamburger" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>
+                <img src={Hamburger} alt="" />
+            </button>
+            <div className={isNavExpanded ? "navigation-menu expanded" : "navigation-menu"}>
+                <ul className={`m-0 ${isNavExpanded ? 'd-flex align-items-center' : ''}`}>
+                    <li className="nav-item">
+                        <a href="/" className="nav-link text-decoration-none text-white fw-bold">About Us</a>
+                    </li>
+                    <li className="nav-item">
+                        <a href="/civitas" className="nav-link text-decoration-none text-white fw-bold">Civitas</a>
+                    </li>
+                    <li className={`nav-item ${isNavExpanded ? 'd-none' : 'd-block'}`}>
+                        <form action="" className="search-bar">
+                            <input type="search" name="search" pattern=".*\S.*" required />
                             <button className="search-btn" type="submit">
                                 <span>Search</span>
                             </button>
-                    </form>
-                </li>
-            </ul>
-            <div onClick={navToggle} className={toggleIcon}>
-                <div className="line1"></div>
-                <div className="line2"></div>
-                <div className="line3"></div>
+                        </form>
+                    </li>
+                </ul>
             </div>
         </nav>
-    )
+    );
 }
 
 export default Navbar
