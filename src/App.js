@@ -9,11 +9,9 @@ import data from 'assets/data/data.json'
 function App() {
     const [lectureData, setLectureData] = useState();
     const handleSearch = e => {
-        console.log(e.target.value)
         const res = data
-            .filter((x) => x.NAMA_LENGKAP.toLowerCase().includes(e.target.value) || x.KODE_DOSEN?.toLowerCase().includes(e.target.value))
+            .filter((x) => x.NAMA_LENGKAP.toLowerCase().includes(e.target.value.toLowerCase()) || x.KODE_DOSEN?.toLowerCase().includes(e.target.value.toLowerCase()))
             .map(c => c)
-        console.log(res)
         setLectureData(res)
     };
 

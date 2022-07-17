@@ -1,13 +1,13 @@
 /* Carousel */
 .carousel-inner {
-	width: 40rem;
+	width: 20rem;
 	height: auto;
 }
 
 .carousel img {
-	width: 40rem;
+	width: 20rem;
 	height: auto;
-	padding: 4rem;
+	padding: 2rem;
 }
 
 .carousel-title {
@@ -73,12 +73,12 @@
 @media screen and (max-width: 992px) {
 	/* Carousel */
 	.carousel-inner {
-		width: 30rem;
+		width: 20rem;
 		height: auto;
 	}
 
 	.carousel img {
-		width: 30rem;
+		width: 20rem;
 		height: auto;
 		padding: 3rem;
 	}
